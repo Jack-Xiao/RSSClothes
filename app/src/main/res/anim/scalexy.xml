@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- ordering.属性设置为  together    还有另一个值：sequentially（表示一个接一个执行）-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="together">
 
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="scaleX"
+        android:valueFrom="1"
+        android:valueTo="0.5"/>
+
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="scaleY"
+        android:valueFrom="1"
+        android:valueTo="0.5"/>
 </set>

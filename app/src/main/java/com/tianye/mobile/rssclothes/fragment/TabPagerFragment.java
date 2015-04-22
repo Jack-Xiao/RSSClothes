@@ -61,6 +61,7 @@ public abstract class TabPagerFragment<V extends PagerAdapter & FragmentProvider
         pager.setAdapter(adapter);
         slidingTabsLayout.setViewPager(pager);
     }
+
     protected void configureTabPager(){
         createPager();
     }

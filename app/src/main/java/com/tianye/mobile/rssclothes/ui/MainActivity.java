@@ -17,7 +17,9 @@ import android.view.View;
 
 import com.tianye.mobile.rssclothes.R;
 import com.tianye.mobile.rssclothes.adapter.NavigationDrawerAdapter;
+import com.tianye.mobile.rssclothes.fragment.AG9Fragment;
 import com.tianye.mobile.rssclothes.fragment.HomePagerFragment;
+import com.tianye.mobile.rssclothes.fragment.PagerSlidingTabStripFragment;
 import com.tianye.mobile.rssclothes.fragment.SettingFragment;
 import com.tianye.mobile.rssclothes.util.ToastUtils;
 
@@ -51,7 +53,8 @@ public class MainActivity extends BaseActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout),navigationDrawerAdapter);
-        selecteFragment(0);
+        //selecteFragment(0);
+        onNavigationDrawerItemSelected(0);
     }
 
 
@@ -71,12 +74,14 @@ public class MainActivity extends BaseActivity
         Bundle args = new Bundle();
         switch(position){
             case 0:
-                fragment =new HomePagerFragment();
+                fragment =new PagerSlidingTabStripFragment();
                 break;
             case 1:
                 selecteFragment(position);
                 fragment = new SettingFragment();
                 break;
+            case 90:
+                fragment = new AG9Fragment();
             default:
                 fragment = new HomePagerFragment();
                 break;
@@ -85,6 +90,7 @@ public class MainActivity extends BaseActivity
         fragment.setArguments(args);
         return fragment;
     }
+
 //
 //    public void onSectionAttached(int number) {
 //        switch (number) {

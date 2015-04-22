@@ -16,8 +16,6 @@
 
 package com.tianye.mobile.rssclothes.view;
 
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -40,7 +38,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.toolbar.R;
+import com.tianye.mobile.rssclothes.R;
+
+import java.util.Locale;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 

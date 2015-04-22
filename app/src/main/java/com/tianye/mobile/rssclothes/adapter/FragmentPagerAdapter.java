@@ -14,6 +14,7 @@ import java.util.Set;
 /**
  * Created by lenovo on 2015/4/8.
  */
+
 public abstract class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter
         implements FragmentProvider {
 

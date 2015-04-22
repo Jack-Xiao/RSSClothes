@@ -72,4 +72,14 @@
         <item name="android:layout_marginRight">100dp</item>-->
     </style>
 
+    <!--extend one of the Theme.AppCompat themes -->
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light">
+
+    </style>
+
+    <style name="AppNightTheme" parent="Theme.clothes">
+
+    </style>
+
+
 </resources>

@@ -1,5 +1,6 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'  //设置使用android插件构建项目
 
+//设置编译android项目的参数
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -32,4 +33,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jakewharton:butterknife:5.1.1'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile files('libs/volley.jar')
+    compile files('libs/universal-image-loader-1.9.1.jar')
+    compile files('libs/photoviewlibrary.jar')
 }

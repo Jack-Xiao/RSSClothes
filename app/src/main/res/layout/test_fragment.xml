@@ -2,5 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <include layout="@layout/toolbar"></include>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView"
+            android:choiceMode="singleChoice"
+            android:divider="@color/secondary_text_disabled_material_light"
+            android:dividerHeight="15dp"></ListView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
