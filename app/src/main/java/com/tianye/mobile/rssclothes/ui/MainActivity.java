@@ -77,7 +77,7 @@ public class MainActivity extends BaseActivity
                 fragment =new PagerSlidingTabStripFragment();
                 break;
             case 1:
-                selecteFragment(position);
+                //selecteFragment(position);
                 fragment = new SettingFragment();
                 break;
             case 90:

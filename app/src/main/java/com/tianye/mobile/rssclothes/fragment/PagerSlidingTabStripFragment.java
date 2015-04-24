@@ -1,11 +1,15 @@
 package com.tianye.mobile.rssclothes.fragment;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -13,16 +17,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tianye.mobile.rssclothes.R;
+import com.tianye.mobile.rssclothes.service.RSSPullService;
+import com.tianye.mobile.rssclothes.util.Constants;
 import com.tianye.mobile.rssclothes.util.DepthPageTransformer;
 import com.tianye.mobile.rssclothes.view.PagerSlidingTabStrip;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import static com.tianye.mobile.rssclothes.fragment.SuperAwesomeCardFragment.ARG_POSITION;
+
 /**
  * Created by lenovo on 2015/4/14.
  */
 public class PagerSlidingTabStripFragment extends BaseFragment{
+    public static final String SELECTION_POSITION = "selection_position";
+
+    private static Intent mServiceIntent;
+    private static IntentFilter mStatusIntentFilter;
+
     @InjectView(R.id.pager)
     ViewPager mViewPager;
 
@@ -31,6 +44,14 @@ public class PagerSlidingTabStripFragment extends BaseFragment{
 
     String [] a = new String[]{"测试1","测试2","测试3"};
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mServiceIntent = new Intent(getActivity(), RSSPullService.class);
+        mStatusIntentFilter = new IntentFilter(
+                Constants.BROADCAST_ACTION);
+        mStatusIntentFilter.addDataScheme("....");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -60,9 +81,11 @@ public class PagerSlidingTabStripFragment extends BaseFragment{
         });
         //return super.onCreateView(inflater, container, savedInstanceState);
 
+        //动画效果
         mViewPager.setPageTransformer(true,new DepthPageTransformer());
 
         initTabsValue();
+
         return contentView;
     }
 
@@ -118,6 +141,17 @@ public class PagerSlidingTabStripFragment extends BaseFragment{
 
         @Override
         public Fragment getItem(int position) {
+            /*
+                选择来发送广播
+             */
+            mServiceIntent.setData(Uri.parse(position + ""));
+            getActivity().startActivity(mServiceIntent);
+
+            BaseFragment fragment = new BaseFragment();
+            Bundle bundle = new Bundle();
+            //bundle.putInt(ARG_POSITION,position);
+            bundle.putInt(ARG_POSITION,position);
+            fragment.setArguments(bundle);
             return SuperAwesomeCardFragment.newInstance(position);
         }
     }

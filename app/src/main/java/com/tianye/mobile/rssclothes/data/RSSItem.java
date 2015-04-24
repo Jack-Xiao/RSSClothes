@@ -8,6 +8,15 @@ public class RSSItem {
     private String pubDate;
     private String description;
     private String link;
+    private String firstImage;
+
+    public String getFirstImage() {
+        return firstImage;
+    }
+
+    public void setFirstImage(String firstImage) {
+        this.firstImage = firstImage;
+    }
 
     public String getTitle() {
         return title;

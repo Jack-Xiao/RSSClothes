@@ -7,9 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by lenovo on 2015/4/16.
  */
-public class DBManager extends SQLiteOpenHelper {
+public class RSSDBManager extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "reader.db";
+    public static final String DB_NAME = "rss.db";
+
     public static final String FAVORITE_ITEM_TABLE_NAME="favorite_item";
 
     private static final String CREATE_SECTION_TABLE =
@@ -21,7 +22,7 @@ public class DBManager extends SQLiteOpenHelper {
             + "(title text, pubdate text, item_detail text, "
             + "link text, first_img_url text, table_name text, table_url text)";
 
-    public DBManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public RSSDBManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
@@ -35,4 +36,6 @@ public class DBManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
 }

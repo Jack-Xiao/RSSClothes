@@ -10,14 +10,13 @@ import android.widget.TextView;
 /**
  * Created by lenovo on 2015/4/8.
  */
-public class NewFeedFragment extends BaseFragment{
+public class NewFeedFragment2 extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //return super.onCreateView(inflater, container, savedInstanceState);
-        //return inflater.inflate(R.layout)
-        TextView tv= new TextView(getActivity());
-        tv.setText("111111111111");
+//        return super.onCreateView(inflater, container, savedInstanceState);
+        TextView tv = new TextView(getActivity());
+        tv.setText("22222222222");
         return tv;
     }
 }

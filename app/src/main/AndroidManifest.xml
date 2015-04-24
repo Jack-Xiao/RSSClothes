@@ -5,9 +5,10 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.clothes" >
+
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/app_name" >
@@ -26,6 +27,11 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
+
+        <!--service发送给IntentService 的Activity需要使用显示Intent -->
+        <service
+            android:name=".service.RSSPullService"
+            android:exported="false"/>
     </application>
 
 </manifest>

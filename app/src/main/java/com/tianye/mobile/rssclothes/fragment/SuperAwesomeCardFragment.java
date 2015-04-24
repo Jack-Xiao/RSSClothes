@@ -1,5 +1,8 @@
 package com.tianye.mobile.rssclothes.fragment;
 
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -10,61 +13,48 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.tianye.mobile.rssclothes.R;
+import com.tianye.mobile.rssclothes.service.RSSPullService;
+import com.tianye.mobile.rssclothes.util.Constants;
 
 /**
  * Created by lenovo on 2015/4/14.
  */
 public class SuperAwesomeCardFragment extends BaseFragment{
 
-    private static final String ARG_POSITION = "position";
+    public static final String ARG_POSITION = "position";
 
-    private int position;
-    private static final int[] drawables = { R.drawable.f, R.drawable.s, R.drawable.t, R.drawable.fo,
-            R.drawable.fi, R.drawable.fi, R.drawable.fi, R.drawable.fi };
-
-    public static BaseFragment newInstance(int position) {
-        SuperAwesomeCardFragment f = new SuperAwesomeCardFragment();
-        Bundle b = new Bundle();
-        b.putInt(ARG_POSITION, position);
-        f.setArguments(b);
-        return f;
-//        BaseFragment f = new BaseFragment();
-//        switch(position){
-//            case 0:
-//
-//                break;
-//            case 1:
-//
-//                break;
-//            case 2:
-//
-//                break;
-//            case 3:
-//
-//                break;
-//            case 4:
-//
-//                break;
-//            case 5:
-//
-//                break;
-//            case 6:
-//
-//                break;
-//            case 7:
-//
-//                break;
-//        }
-//        return f;
-
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         position = getArguments().getInt(ARG_POSITION);
+
+
+        //过滤器的动作条件是自定义的BROADCAST_ACTION
+        IntentFilter mStatusIntentFilter = new IntentFilter(Constants.BROADCAST_ACTION);
+        //为http协议添加一个数据过滤器
+        mStatusIntentFilter.addDataScheme("http");
+
+
     }
+
+
+    private int position;
+    private static final int[] drawables = { R.drawable.f, R.drawable.s, R.drawable.t, R.drawable.fo,
+            R.drawable.fi, R.drawable.fi, R.drawable.fi, R.drawable.fi };
+
+
+    public static BaseFragment newInstance(int position) {
+        SuperAwesomeCardFragment f = new SuperAwesomeCardFragment();
+        Bundle b = new Bundle();
+        b.putInt(ARG_POSITION, position);
+        f.setArguments(b);
+
+        return f;
+    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,6 +76,7 @@ public class SuperAwesomeCardFragment extends BaseFragment{
         v.setText("CARD " + (position + 1));
 
         fl.addView(v);
+
         return fl;
     }
 

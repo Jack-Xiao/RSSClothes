@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentManager;
 
 import com.tianye.mobile.rssclothes.R;
 import com.tianye.mobile.rssclothes.core.User;
-import com.tianye.mobile.rssclothes.fragment.NeedFragment2;
-import com.tianye.mobile.rssclothes.fragment.NewFeedFragment;
+import com.tianye.mobile.rssclothes.fragment.NewFeedFragment2;
+import com.tianye.mobile.rssclothes.fragment.NewFeedFragment1;
 import com.tianye.mobile.rssclothes.fragment.NewFeedFragment3;
 
 import java.util.HashSet;
@@ -42,10 +42,10 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             case 0:
                 //fragment = defaultUser ? new
                 //fragment = defaultUser ? new UserReceivedNew
-                fragment = new NewFeedFragment();
+                fragment = new NewFeedFragment1();
                 break;
             case 1:
-                fragment = new NeedFragment2();
+                fragment = new NewFeedFragment2();
                 break;
             case 2:
                 fragment = new NewFeedFragment3();

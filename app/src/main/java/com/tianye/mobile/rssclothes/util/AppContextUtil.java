@@ -24,8 +24,7 @@ public class AppContextUtil {
         return true;
     }
 
-    public static boolean isWifi(Context context)
-    {
+    public static boolean isWifi(Context context) {
         ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         return networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
@@ -67,14 +66,12 @@ public class AppContextUtil {
         context.deleteDatabase("webviewCache.db-wal");
     }
 
-    public static File getSdImgCache(String url)
-    {
+    public static File getSdImgCache(String url) {
         return new File(AppConfig.APP_IMAGE_CACHE_DIR
                 + File.separator + MD5.Md5(url));
     }
 
-    public static File getSectionCache(String url)
-    {
+    public static File getSectionCache(String url) {
         return new File(AppConfig.APP_SECTION_DIR
                 + File.separator + MD5.Md5(url));
     }
